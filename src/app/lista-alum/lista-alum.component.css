@@ -1,0 +1,48 @@
+.error{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.success{
+    color: rgb(0, 255, 0);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+.button{
+    background-color: rgb(255, 145, 0);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
+
+.button:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.input{
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-left: 30px;
+    border-radius: 50px;
+    background-color: #ebebeb;
+    border: 2px solid orange;
+}

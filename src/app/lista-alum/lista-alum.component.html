@@ -1,0 +1,158 @@
+<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'">
+<h2 >Lista de <span appDirective>Alumnos</span></h2>
+</div>
+
+<ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'">
+   @for (alumno of Listado ; track alumno.idstudent){ @if (alumno.age > 18) { 
+      <li>{{alumno.idstudent}}-{{alumno.age}}- <span [ngClass]="{'error': !alumno.registrations, 'success': alumno.registrations}">{{alumno.registrations}}</span>-{{alumno.grade}}-{{alumno.couse}}</li> } }
+      @empty { <li>{{"No hay alumnos" | uppercase}}</li> } 
+</ul>
+
+<button (click)="ClearList()" [ngClass]="'button'">Limpiar Listado</button>
+
+
+<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'" [style.margin-bottom]="'20px'">
+  <h2 >Alumno <span appDirective>Seleccionado</span></h2>
+  </div>
+
+<input type="text" [(ngModel)]="AlumnoSeleccionado" [ngClass]="'input'">
+
+<ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'">
+  @switch (AlumnoSeleccionado) {
+    @case ('Juan Perez') {
+      <ul>
+        <li>Nombre: Juan Perez</li>
+        <li>Edad: 20</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 8</li>
+      </ul>
+    }
+    @case ('Maria Lopez') {
+      <ul>
+        <li> Nombre: Maria Lopez</li>
+        <li>Edad: 22</li>
+        <li>Curso: React</li>
+        <li>Calificación: 9</li>
+      </ul>
+    }
+    @case ('Pedro Ramirez') {
+      <ul>
+        <li>Nombre:Pedro Ramirez</li>
+        <li>Edad: 21</li>
+        <li>Curso: Vue</li>
+        <li>Calificación: 7</li>
+      </ul>
+    }
+    @case ('Ana Garcia') {
+      <ul>
+        <li>Ana Garica</li>
+        <li>Edad: 23</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 10</li>
+      </ul>
+    }
+    @case ('Luisa Torres') {
+      <ul>
+        <li>Luisa Torres</li>
+        <li>Edad: 24</li>
+        <li>Curso: React</li>
+        <li>Calificación: 8</li>
+      </ul>
+    }
+    @case ('Carlos Sanchez') {
+      <ul>
+        <li>Carlos Sanchez</li>
+        <li>Edad: 25</li>
+        <li>Curso: Vue</li>
+        <li>Calificación: 9</li>
+      </ul>
+    }
+    @case ('Sofia Rodriguez') {
+      <ul>
+        <li>Sofia Rodriguez</li>
+        <li>Edad: 26</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 7</li>
+      </ul>
+    }
+    @case ('Javier Perez') {
+      <ul>
+        <li>Javier Perez</li>
+        <li>Edad: 27</li>
+        <li>Curso: React</li>
+        <li>Calificación: 10</li>
+      </ul>
+    }
+    @case ('Rosa Lopez') {
+      <ul>
+        <li>Rosa Lopez</li>
+        <li>Edad: 28</li>
+        <li>Curso: Vue</li>
+        <li>Calificación: 8</li>
+      </ul>
+    }
+    @case ('Ramon Ramirez') {
+      <ul>
+        <li>Ramon Ramirez</li>
+        <li>Edad: 29</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 9</li>
+      </ul>
+    }
+    @case ('Rodrigo Peralta') {
+      <ul>
+        <li>Rodrigo Peralta</li>
+        <li>Edad: 30</li>
+        <li>Curso: React</li>
+        <li>Calificación: 7</li>
+      </ul>
+    }
+    @case ('Ramon Barrichel') {
+      <ul>
+        <li>Ramon Barrichel</li>
+        <li>Edad: 31</li>
+        <li>Curso: Vue</li>
+        <li>Calificación: 10</li>
+      </ul>
+    }
+    @case ('Rosa Maria') {
+      <ul>
+        <li>Rosa Maria</li>
+        <li>Edad: 32</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 8</li>
+      </ul>
+    }
+    @case ('Matias Mendoza') {
+      <ul>
+        <li>Matias Mendoza</li>
+        <li>Edad: 33</li>
+        <li>Curso: React</li>
+        <li>Calificación: 9</li>
+      </ul>
+    }
+    @case ('Mariana quiroga') {
+      <ul>
+        <li>Mariana quiroga</li>
+        <li>Edad: 34</li>
+        <li>Curso: Vue</li>
+        <li>Calificación: 7</li>
+      </ul>
+    }
+    @case ('Luis Torrente') {
+      <ul>
+        <li>Luis Torrente</li>
+        <li>Edad: 35</li>
+        <li>Curso: Angular</li>
+        <li>Calificación: 10</li>
+      </ul>
+    }
+    @default {
+      <p>Alumno no encontrado</p>
+    }
+  }
+</ul>
+
+<button (click)="showdata()" [ngClass]="'button'"> 
+Ver Alumno Seleccionado
+</button>
