@@ -1,158 +1,213 @@
-<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'">
-<h2 >Lista de <span appDirective>Alumnos</span></h2>
+<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'"
+  class="text-center">
+  <h2>{{title}}</h2>
 </div>
 
-<ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'">
+<!-- <ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'">
    @for (alumno of Listado ; track alumno.idstudent){ @if (alumno.age > 18) { 
       <li>{{alumno.idstudent}}-{{alumno.age}}- <span [ngClass]="{'error': !alumno.registrations, 'success': alumno.registrations}">{{alumno.registrations}}</span>-{{alumno.grade}}-{{alumno.couse}}</li> } }
       @empty { <li>{{"No hay alumnos" | uppercase}}</li> } 
 </ul>
 
-<button (click)="ClearList()" [ngClass]="'button'">Limpiar Listado</button>
+<button (click)="ClearList()" [ngClass]="'button'">Limpiar Listado</button> -->
+<div class="d-flex justify-content-center align-items-center">
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Calificación</th>
+        <th scope="col">Aprovado</th>
+        <th scope="col">Recuperaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of Lista">
+        <td>{{ alumno.idstudent }}</td>
+        <td>{{ alumno.age }}</td>
+        <td>{{ alumno.couse }}</td>
+        <td>{{ alumno.grade }}</td>
+        <td>
+          <span [ngClass]="{'error': !alumno.approved, 'success': alumno.approved}">
+            {{ alumno.approved ? 'Aprobado' : 'No Aprobado' }}
+          </span>
+        </td>
+        <td>
+          <button *ngIf="!alumno.approved" (click)="onDeleteLista(alumno.idstudent)" class="btn">
+            <svg width="35px" height="35px" viewBox="0 0 48.00 48.00" version="1" xmlns="http://www.w3.org/2000/svg"
+              enable-background="new 0 0 48 48" fill="#ffffff" stroke="#ffffff"
+              transform="rotate(90)matrix(-1, 0, 0, 1, 0, 0)" stroke-width="0.00048000000000000007">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g fill="#e60000">
+                  <path
+                    d="M13,13c0-3.3,2.7-6,6-6h10c3.3,0,6,2.7,6,6h4c0-5.5-4.5-10-10-10H19C13.5,3,9,7.5,9,13v11.2h4V13z">
+                  </path>
+                  <polygon points="4.6,22 11,30.4 17.4,22"></polygon>
+                </g>
+                <g fill="#e60000">
+                  <path
+                    d="M35,35c0,3.3-2.7,6-6,6H19c-3.3,0-6-2.7-6-6H9c0,5.5,4.5,10,10,10h10c5.5,0,10-4.5,10-10V23h-4V35z">
+                  </path>
+                  <polygon points="30.6,26 37,17.6 43.4,26"></polygon>
+                </g>
+              </g>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 
-<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'" [style.margin-bottom]="'20px'">
-  <h2 >Alumno <span appDirective>Seleccionado</span></h2>
-  </div>
 
-<input type="text" [(ngModel)]="AlumnoSeleccionado" [ngClass]="'input'">
+<div [style.font-family]="'Courier New'" [style.font-size]="'25px'" [style.text-transform]="'uppercase'"
+  [style.margin-bottom]="'20px'" class="text-center">
+  <h2>Alumno <span appDirective>Seleccionado</span></h2>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+  <input type="text" [(ngModel)]="AlumnoSeleccionado" [ngClass]="'input'">
+</div>
 
-<ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'">
+<ul [style.font-family]="'Courier New'" [style.font-weight]="'bold'" [style.font-size]="'20px'" class="text-center">
   @switch (AlumnoSeleccionado) {
-    @case ('Juan Perez') {
-      <ul>
-        <li>Nombre: Juan Perez</li>
-        <li>Edad: 20</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 8</li>
-      </ul>
-    }
-    @case ('Maria Lopez') {
-      <ul>
-        <li> Nombre: Maria Lopez</li>
-        <li>Edad: 22</li>
-        <li>Curso: React</li>
-        <li>Calificación: 9</li>
-      </ul>
-    }
-    @case ('Pedro Ramirez') {
-      <ul>
-        <li>Nombre:Pedro Ramirez</li>
-        <li>Edad: 21</li>
-        <li>Curso: Vue</li>
-        <li>Calificación: 7</li>
-      </ul>
-    }
-    @case ('Ana Garcia') {
-      <ul>
-        <li>Ana Garica</li>
-        <li>Edad: 23</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 10</li>
-      </ul>
-    }
-    @case ('Luisa Torres') {
-      <ul>
-        <li>Luisa Torres</li>
-        <li>Edad: 24</li>
-        <li>Curso: React</li>
-        <li>Calificación: 8</li>
-      </ul>
-    }
-    @case ('Carlos Sanchez') {
-      <ul>
-        <li>Carlos Sanchez</li>
-        <li>Edad: 25</li>
-        <li>Curso: Vue</li>
-        <li>Calificación: 9</li>
-      </ul>
-    }
-    @case ('Sofia Rodriguez') {
-      <ul>
-        <li>Sofia Rodriguez</li>
-        <li>Edad: 26</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 7</li>
-      </ul>
-    }
-    @case ('Javier Perez') {
-      <ul>
-        <li>Javier Perez</li>
-        <li>Edad: 27</li>
-        <li>Curso: React</li>
-        <li>Calificación: 10</li>
-      </ul>
-    }
-    @case ('Rosa Lopez') {
-      <ul>
-        <li>Rosa Lopez</li>
-        <li>Edad: 28</li>
-        <li>Curso: Vue</li>
-        <li>Calificación: 8</li>
-      </ul>
-    }
-    @case ('Ramon Ramirez') {
-      <ul>
-        <li>Ramon Ramirez</li>
-        <li>Edad: 29</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 9</li>
-      </ul>
-    }
-    @case ('Rodrigo Peralta') {
-      <ul>
-        <li>Rodrigo Peralta</li>
-        <li>Edad: 30</li>
-        <li>Curso: React</li>
-        <li>Calificación: 7</li>
-      </ul>
-    }
-    @case ('Ramon Barrichel') {
-      <ul>
-        <li>Ramon Barrichel</li>
-        <li>Edad: 31</li>
-        <li>Curso: Vue</li>
-        <li>Calificación: 10</li>
-      </ul>
-    }
-    @case ('Rosa Maria') {
-      <ul>
-        <li>Rosa Maria</li>
-        <li>Edad: 32</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 8</li>
-      </ul>
-    }
-    @case ('Matias Mendoza') {
-      <ul>
-        <li>Matias Mendoza</li>
-        <li>Edad: 33</li>
-        <li>Curso: React</li>
-        <li>Calificación: 9</li>
-      </ul>
-    }
-    @case ('Mariana quiroga') {
-      <ul>
-        <li>Mariana quiroga</li>
-        <li>Edad: 34</li>
-        <li>Curso: Vue</li>
-        <li>Calificación: 7</li>
-      </ul>
-    }
-    @case ('Luis Torrente') {
-      <ul>
-        <li>Luis Torrente</li>
-        <li>Edad: 35</li>
-        <li>Curso: Angular</li>
-        <li>Calificación: 10</li>
-      </ul>
-    }
-    @default {
-      <p>Alumno no encontrado</p>
-    }
+  @case ('Juan Perez') {
+  <ul>
+    <li>Nombre: Juan Perez</li>
+    <li>Edad: 20</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 8</li>
+  </ul>
+  }
+  @case ('Maria Lopez') {
+  <ul>
+    <li> Nombre: Maria Lopez</li>
+    <li>Edad: 22</li>
+    <li>Curso: React</li>
+    <li>Calificación: 9</li>
+  </ul>
+  }
+  @case ('Pedro Ramirez') {
+  <ul>
+    <li>Nombre:Pedro Ramirez</li>
+    <li>Edad: 21</li>
+    <li>Curso: Vue</li>
+    <li>Calificación: 7</li>
+  </ul>
+  }
+  @case ('Ana Garcia') {
+  <ul>
+    <li>Ana Garica</li>
+    <li>Edad: 23</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 10</li>
+  </ul>
+  }
+  @case ('Luisa Torres') {
+  <ul>
+    <li>Luisa Torres</li>
+    <li>Edad: 24</li>
+    <li>Curso: React</li>
+    <li>Calificación: 8</li>
+  </ul>
+  }
+  @case ('Carlos Sanchez') {
+  <ul>
+    <li>Carlos Sanchez</li>
+    <li>Edad: 25</li>
+    <li>Curso: Vue</li>
+    <li>Calificación: 9</li>
+  </ul>
+  }
+  @case ('Sofia Rodriguez') {
+  <ul>
+    <li>Sofia Rodriguez</li>
+    <li>Edad: 26</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 7</li>
+  </ul>
+  }
+  @case ('Javier Perez') {
+  <ul>
+    <li>Javier Perez</li>
+    <li>Edad: 27</li>
+    <li>Curso: React</li>
+    <li>Calificación: 10</li>
+  </ul>
+  }
+  @case ('Rosa Lopez') {
+  <ul>
+    <li>Rosa Lopez</li>
+    <li>Edad: 28</li>
+    <li>Curso: Vue</li>
+    <li>Calificación: 8</li>
+  </ul>
+  }
+  @case ('Ramon Ramirez') {
+  <ul>
+    <li>Ramon Ramirez</li>
+    <li>Edad: 29</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 9</li>
+  </ul>
+  }
+  @case ('Rodrigo Peralta') {
+  <ul>
+    <li>Rodrigo Peralta</li>
+    <li>Edad: 30</li>
+    <li>Curso: React</li>
+    <li>Calificación: 7</li>
+  </ul>
+  }
+  @case ('Ramon Barrichel') {
+  <ul>
+    <li>Ramon Barrichel</li>
+    <li>Edad: 31</li>
+    <li>Curso: Vue</li>
+    <li>Calificación: 10</li>
+  </ul>
+  }
+  @case ('Rosa Maria') {
+  <ul>
+    <li>Rosa Maria</li>
+    <li>Edad: 32</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 8</li>
+  </ul>
+  }
+  @case ('Matias Mendoza') {
+  <ul>
+    <li>Matias Mendoza</li>
+    <li>Edad: 33</li>
+    <li>Curso: React</li>
+    <li>Calificación: 9</li>
+  </ul>
+  }
+  @case ('Mariana quiroga') {
+  <ul>
+    <li>Mariana quiroga</li>
+    <li>Edad: 34</li>
+    <li>Curso: Vue</li>
+    <li>Calificación: 7</li>
+  </ul>
+  }
+  @case ('Luis Torrente') {
+  <ul>
+    <li>Luis Torrente</li>
+    <li>Edad: 35</li>
+    <li>Curso: Angular</li>
+    <li>Calificación: 10</li>
+  </ul>
+  }
+  @default {
+  <p>Alumno no encontrado</p>
+  }
   }
 </ul>
-
-<button (click)="showdata()" [ngClass]="'button'"> 
-Ver Alumno Seleccionado
-</button>
+<div class="d-flex justify-content-center align-items-center">
+  <button (click)="showdata()" [ngClass]="'button'">Ver Alumno Seleccionado</button>
+</div>

@@ -1,4 +1,10 @@
 <h1 [style.text-align]="'center'" [style.font-family]="'Courier New'"  [style.text-transform]="'lowercase'"> <span [style.color]="'orange'" [style.text-transform]="'uppercase'">Simulador </span>Alumno</h1>
 
 
-<app-lista-alum></app-lista-alum>
+
+<app-forms (sendforms)="onAddForms($event)"></app-forms>
+
+
+<app-lista-alum (selectedstudent)="onDeleteLista($event)" [Lista]="Lista"></app-lista-alum>
+
+<app-reactive-forms></app-reactive-forms>

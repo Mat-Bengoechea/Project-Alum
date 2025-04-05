@@ -1,0 +1,46 @@
+<section class="container-fluid mt-5 mb-5  section-comentarios">
+    <div class="titulo-coment text-center font-monospace">
+        <h2 class="text-uppercase">Comentarios</h2>
+        <p class="fs-3 m-lg-1 text-decoration-underline">Deja tu comentario</p>
+    </div>
+
+    <form [formGroup]="formcoment" (ngSubmit)="onSubmit()" class=" font-monospace form-comentarios">
+        Nombre:<input type="text" formControlName="nombre">
+        <div *ngIf="isNameValid">
+            <div *ngIf="nombre?.hasError('required')">
+                <small class="text-danger">El nombre es requerido</small>
+            </div>
+            <div *ngIf="nombre?.hasError('minlength')">
+                <small class="text-danger">El nombre debe tener al menos 3 caracteres</small>
+            </div>
+        </div>
+        <br>
+        Email:<input type="text" formControlName="email">
+        <div *ngIf="isEmailValid">
+            <div *ngIf="email?.hasError('required')">
+                <small class="text-danger">El email es requerido</small>
+            </div>
+            <div *ngIf="email?.hasError('email')">
+                <small class="text-danger">El email no es valido</small>
+            </div>
+        </div>
+        
+        <br>
+        <label for="comentario">Comentario:</label>
+        <textarea name="comentario" id="comentario" formControlName="comentario" rows="5" cols="33"
+            class="font-monospace text-comentario"></textarea>
+        <div *ngIf="isComentarioValid">
+            <div *ngIf="comentario?.hasError('minlength')">
+                <small class="text-danger">El comentario debe tener al menos 3 caracteres</small>
+            </div>
+
+        </div>
+
+
+        <br>
+        <div class="text-uppercase d-flex justify-content-center align-items-center">
+            <button>Enivar</button>
+        </div>
+    </form>
+
+</section>

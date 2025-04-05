@@ -41,8 +41,13 @@
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    margin-left: 30px;
     border-radius: 50px;
     background-color: #ebebeb;
     border: 2px solid orange;
+}
+
+.table{
+    width: 850px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }

@@ -1,0 +1,32 @@
+<form (submit)="addforms()" class="container justify-content-center mt-5 mb-5">
+    <div class="mb-3">
+      <label for="idstudent" class="form-label">Nombre completo</label>
+      <input type="name" [(ngModel)]="forms.idstudent" name="idstudent" class="form-control" id="idstudent" aria-describedby="name">
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Edad</label>
+        <input type="number" [(ngModel)]="forms.age" name="age" class="form-control" id="age" aria-describedby="age" min="18" max="50">
+      </div>
+      <div class="mb-3">
+        <label for="grade" class="form-label">Calificación</label>
+        <input type="number" [(ngModel)]="forms.grade" name="grade" class="form-control" id="grade" aria-describedby="grade" min="0" max="10">
+      </div>
+    <div class="mb-3">
+        <label for="cursosselect" class="form-label">Curso</label>
+        <select id="cursosselect" [(ngModel)]="forms.couse" name="cursosselect" class="form-select">
+        <option>Selecciona tu curso</option> 
+        <option>Angular</option>
+        <option>React</option>
+        <option>Vue</option>
+        <option>Svelte</option>
+        <option>Ember</option>
+        <option>Backbone</option>
+        <option>Meteor</option>
+        <option>Polymer</option>
+        <option>Aurelia</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <button type="submit" class="btn btn-warning btn-lg rounded-5">Enviar</button>
+      </div>
+  </form>

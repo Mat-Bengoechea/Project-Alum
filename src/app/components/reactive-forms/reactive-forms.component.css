@@ -1,0 +1,63 @@
+
+.titulo-coment h2{
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.section-comentarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 20px;
+    gap: 20px;
+}
+
+.form-comentarios{
+gap: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.form-comentarios input{
+    padding: 10px;
+    width: 500px;
+    border-radius: 50px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: white;
+}
+
+.text-comentario{
+    height: 200px;
+    border-radius: 40px;
+    border-bottom: 3px solid white;
+    background-color: transparent;
+    color: white;
+    gap: 10px;
+    padding: 10px;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+button{
+    background-color: #FF4C00;
+    color: white;
+    border-radius: 50px;
+    padding: 7px;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
